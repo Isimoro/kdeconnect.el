@@ -99,16 +99,6 @@
                     "--share" (shell-quote-argument path)) " ")))
 
 ;;;###autoload
-(defun kdeconnect-select-active-device (name)
-  "Set the active device to NAME."
-  (interactive
-   (list (completing-read
-          "Select a device: "
-          (split-string kdeconnect-devices "," t)
-          nil t "")))
-  (setq kdeconnect-active-device name))
-
-;;;###autoload
 (defun kdeconnect-send-sms (message destination)
   (interactive "MEnter message: \nnEnter destination: ")
   (shell-command
