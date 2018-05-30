@@ -118,5 +118,30 @@
                     "--destination" (number-to-string destination)
                     "--send-sms" (shell-quote-argument message)) " ")))
 
+(defun kdeconnect/list-available-devices ()
+  (split-string
+    (shell-command-to-string "kdeconnect-cli -a --id-name-only")
+    "\n"
+    t))
+
+(defun kdeconnect/kde-list-devices ()
+  (split-string
+    (shell-command-to-string "kdeconnect-cli -l --id-name-only")
+    "\n"
+    t))
+
+;;;###autoload
+(defun kdeconnect/select-active-device (name)
+  "Set the active device to NAME."
+  (interactive
+   (list (completing-read
+          "Select a device: "
+          (kdeconnect/list-available-devices)
+          nil
+          t
+          kdeconnect-active-device)))
+  (setq kdeconnect-active-device
+        (car (split-string name " " t))))
+
 (provide 'kdeconnect)
 ;;; kdeconnect.el ends here
