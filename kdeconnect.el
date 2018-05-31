@@ -4,10 +4,7 @@
 
 ;; Author: Carl Lieberman <dev@carl.ac>
 ;; Keywords: kdeconnect, android
-<<<<<<< HEAD
-=======
-;; Package-Version: 20180126.1540
->>>>>>> Initial Commit
+
 ;; Version: 1.2.1
 
 ;; This program is free software; you can redistribute it and/or modify
